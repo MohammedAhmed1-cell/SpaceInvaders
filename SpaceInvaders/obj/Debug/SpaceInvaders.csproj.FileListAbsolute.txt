@@ -1,0 +1,15 @@
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.exe.config
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.exe
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\bin\Debug\SpaceInvaders.pdb
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csprojAssemblyReference.cache
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\MainWindow.g.cs
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\App.g.cs
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders_MarkupCompile.cache
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders_MarkupCompile.lref
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\MainWindow.baml
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.g.resources
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.Properties.Resources.resources
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csproj.GenerateResource.cache
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.csproj.CoreCompileInputs.cache
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.exe
+C:\Users\reazs\source\repos\SpaceInvaders\SpaceInvaders\obj\Debug\SpaceInvaders.pdb
