@@ -27,7 +27,9 @@ namespace SpaceInvaders
         List<Rectangle> itemRemover = new List<Rectangle>();
 
         Random rand = new Random();
-
+        /// <summary>
+        /// the basic intergers for the game
+        /// </summary>
         int enemySpriteCounter = 0;
         int enemyCounter = 100;
         int playerSpeed = 10;
@@ -42,6 +44,7 @@ namespace SpaceInvaders
         {
             InitializeComponent();
 
+            //for the start and the end of the game
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
             gameTimer.Tick += GameLoop;
             gameTimer.Start();
@@ -50,12 +53,14 @@ namespace SpaceInvaders
 
             ImageBrush bg = new ImageBrush();
 
+            //Importing of the background image 
             bg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/purple.png"));
             bg.TileMode = TileMode.Tile;
             bg.Viewport = new Rect(0, 0, 0.15, 0.15);
             bg.ViewboxUnits = BrushMappingMode.RelativeToBoundingBox;
             MyCanvas.Background = bg;
 
+            //importing of the player image
             ImageBrush playerImage = new ImageBrush();
             playerImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/player.png"));
             player.Fill = playerImage;
@@ -66,16 +71,19 @@ namespace SpaceInvaders
             playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
 
             enemyCounter -= 1;
-
+            
+            //Score and damage displayed when played
             scoreText.Content = "Score: " + score;
             damageText.Content = "Damage: " + damage;
 
+            //Enemies spawning
             if(enemyCounter < 0)
             {
                 MakeEnemies();
                 enemyCounter = limit;
             }
 
+            //The speed whe moving left and right
             if(moveLeft == true && Canvas.GetLeft(player) > 0)
             {
                 Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
@@ -85,7 +93,8 @@ namespace SpaceInvaders
             {
                 Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
             }
-
+         
+            //this is for when the bullet doesn't go off the map
             foreach(var x in MyCanvas.Children.OfType<Rectangle>())
             {
                 if(x is Rectangle && (string)x.Tag == "bullet")
@@ -99,6 +108,7 @@ namespace SpaceInvaders
                         itemRemover.Add(x);
                     }
 
+                    //Created a specific border for enemies for when they gey past the player
                     foreach(var y in MyCanvas.Children.OfType<Rectangle>())
                     {
                         if(y is Rectangle && (string)y.Tag == "enemy")
@@ -115,6 +125,7 @@ namespace SpaceInvaders
                     }
                 }
 
+                //10 damage when the enemy goes past the player
                 if(x is Rectangle && (string)x.Tag == "enemy")
                 {
                     Canvas.SetTop(x, Canvas.GetTop(x) + enemySpeed);
@@ -125,6 +136,7 @@ namespace SpaceInvaders
                         damage += 10;
                     }
 
+                    //5 damage when the enemy hits the player
                     Rect enemyHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
                     if(playerHitBox.IntersectsWith(enemyHitBox))
@@ -135,29 +147,37 @@ namespace SpaceInvaders
                 }
             }
 
+            //For each hot the enemy is removed
             foreach(Rectangle i in itemRemover)
             {
                 MyCanvas.Children.Remove(i);
             }
 
+            //When you kill 5 enemies or more the gameplay becomes faster every time
             if(score > 5)
             {
                 limit = 20;
                 enemySpeed = 15;
             }
 
+            //If you go over 99 damage this message will show up with the amount of alien ships/enemies you have killed
             if(damage > 99)
             {
                 gameTimer.Stop();
                 damageText.Content = "Damage: 100";
                 damageText.Foreground = Brushes.Red;
-                MessageBox.Show("Captain you have destroyed: " + score + " Alien ships" + Environment.NewLine + "Press Ok to play again", "Mohammed says: ");
+                MessageBox.Show("Captain you have destroyed " + score + " Alien ships" + Environment.NewLine + "Press Ok to play again", "Mohammed says: ");
 
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 Application.Current.Shutdown();
             }
         }
 
+        /// <summary>
+        /// Left and right arrow key for the controlls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Left)
@@ -183,6 +203,7 @@ namespace SpaceInvaders
                 moveRight = false;
             }
 
+            //Space key to shoot and the size of the bullets as well
             if(e.Key == Key.Space)
             {
                 Rectangle newBullet = new Rectangle
@@ -205,8 +226,9 @@ namespace SpaceInvaders
         {
             ImageBrush enemySprite = new ImageBrush();
 
-            enemySpriteCounter = rand.Next(1, 5);
+            enemySpriteCounter = rand.Next(1, 4);
 
+            //Each enemy being imported
             switch (enemySpriteCounter)
             {
                 case 1:
@@ -226,6 +248,7 @@ namespace SpaceInvaders
                     break;
             }
 
+            //Size of each enemy
             Rectangle newEnemy = new Rectangle
             {
                 Tag = "enemy",
