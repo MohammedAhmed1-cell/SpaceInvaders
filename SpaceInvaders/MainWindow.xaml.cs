@@ -20,8 +20,10 @@ namespace SpaceInvaders
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
+
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool moveLeft, moveRight;
         List<Rectangle> itemRemover = new List<Rectangle>();

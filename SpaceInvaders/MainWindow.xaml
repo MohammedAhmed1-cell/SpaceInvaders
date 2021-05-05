@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="Space Invaders" Height="615" Width="540">
     <Canvas Name="MyCanvas" Focusable="True" Background="Black" KeyDown="OnKeyDown" KeyUp="OnKeyUp">
-
+         <!---This is for the spaceship of which the player will control-->
         <Rectangle Name="player" Height="50" Width="60" Fill="Yellow" Canvas.Top="496" Canvas.Left="211"/>
-
+        
+         <!---This for the score and damage label-->
         <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
         <Label Name="damageText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="394"/>
 
